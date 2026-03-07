@@ -4,6 +4,8 @@ import './index.css'
 import App from './App.jsx'
 import Navbar from './Components/Navbar.jsx'
 
+// creat router code here;g
+
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     {/* <App /> */}
