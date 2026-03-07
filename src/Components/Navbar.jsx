@@ -1,4 +1,4 @@
-import React, { createContext } from 'react';
+import React, { createContext, useState } from 'react';
 import Footer from './Footer';
 
 
@@ -6,14 +6,19 @@ import Footer from './Footer';
 
 export const MyContexs = createContext('');
 
+export const MoneyContex = createContext();
+
 const Navbar = () => {
     const name = "Asik"
+    const [money, setMoney] = useState(0)
     return (
         <div>
             <h1>Iam Navbar code</h1>
-         <MyContexs.Provider value={name}>
-            <Footer></Footer>
-         </MyContexs.Provider>
+            <MoneyContex value={[money,setMoney]}>
+                <MyContexs.Provider value={name}>
+                    <Footer></Footer>
+                </MyContexs.Provider>
+            </MoneyContex>
         </div>
     );
 };
