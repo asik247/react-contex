@@ -1,4 +1,4 @@
-import { StrictMode } from 'react'
+import { createContext, StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
@@ -12,23 +12,30 @@ import Home from './Components/PersonalComponents/Home.jsx'
 // creat router code here;
 const router = createBrowserRouter([
   {
-    path:"/",
-    Component:Root,
-    children:[
-      {index:true,Component:Home},
-      {path:'profile',Component:Profile},
-      {path:'login',Component:LoginPage},
-      {path:'dashBoard',Component:DashBoard},
+    path: "/",
+    Component: Root,
+    children: [
+      { index: true, Component: Home },
+      { path: 'profile', Component: Profile },
+      { path: 'login', Component: LoginPage },
+      { path: 'dashBoard', Component: DashBoard },
     ]
   }
 ])
 
-createRoot(document.getElementById('root')).render(
- 
-   
-   <RouterProvider router={router}>
+// contex code start hre;
 
-   </RouterProvider>
-  
+export const MyContext = createContext();
+const name = 'ar'
+
+createRoot(document.getElementById('root')).render(
+
+
+  <MyContext value={name}>
+    <RouterProvider router={router}>
+
+    </RouterProvider>
+  </MyContext>
+
 
 )
