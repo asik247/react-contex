@@ -7,6 +7,7 @@ const About = () => {
     return (
         <div>
             <h1>{data}</h1>
+            <p>All taka{taka}</p>
              <button onClick={()=>setTaka(taka+100)}>Add Money</button>
 
         </div>
