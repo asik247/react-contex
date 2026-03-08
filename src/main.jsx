@@ -1,4 +1,4 @@
-import { createContext, StrictMode } from 'react'
+import { createContext, StrictMode, useState } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router'
@@ -26,16 +26,25 @@ const router = createBrowserRouter([
 // contex code start hre;
 
 export const MyContext = createContext();
-const name = 'ar'
+function AppProvider (){
+  const [add,setAdd] = useState(0)
 
-createRoot(document.getElementById('root')).render(
-
-
-  <MyContext value={name}>
+return (
+  
+  <MyContext value={[add,setAdd]}>
     <RouterProvider router={router}>
 
     </RouterProvider>
   </MyContext>
+)
+}
+
+
+createRoot(document.getElementById('root')).render(
+
+<StrictMode>
+  <AppProvider></AppProvider>
+</StrictMode>
 
 
 )
